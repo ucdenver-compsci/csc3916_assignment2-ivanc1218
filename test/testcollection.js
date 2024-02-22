@@ -46,7 +46,7 @@ describe('Register, Login and Call Test Collection with Basic Auth and JWT Auth'
                         //console.log('got token ' + token)
                         //lets call a protected API
                         chai.request(server)
-                            .put('/testcollection')
+                            .put('/movies')
                             .set('Authorization', token)
                             .send({echo: ''})
                             .end((err, res) => {
@@ -59,10 +59,10 @@ describe('Register, Login and Call Test Collection with Basic Auth and JWT Auth'
         })
     });
 
-   describe('/testcollection fail auth', () => {
+   describe('/movies fail auth', () => {
       it('delete requires basic auth failed login', (done) => {
           chai.request(server)
-              .delete('/testcollection')
+              .delete('/movies')
               .auth('cu_user', 'cu_rulez1')
               .send({ echo: '' })
               .end((err, res) => {

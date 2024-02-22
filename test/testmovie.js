@@ -40,7 +40,7 @@ describe('Test Movies Routes', () => {
         })
     });
 
-    //Test the GET route
+    //Test the POST route
     describe('post movies', () => {
         it('it should return movie saved', (done) => {
             chai.request(server)
@@ -55,7 +55,7 @@ describe('Test Movies Routes', () => {
         })
     });
 
-    //Test the GET route
+    //Test the DELETE route
     describe('DELETE movies', () => {
         it('it should return movie deleted', (done) => {
             chai.request(server)
