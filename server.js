@@ -55,6 +55,11 @@ router.post('/signup', (req, res) => {
     }
 });
 
+router.all('/signup', (req, res) => {
+    // Returns a message stating that the HTTP method is unsupported.
+    res.status(405).send({ message: 'HTTP method not supported.' });
+});
+
 router.post('/signin', (req, res) => {
     var user = db.findOne(req.body.username);
 
@@ -70,6 +75,11 @@ router.post('/signin', (req, res) => {
             res.status(401).send({success: false, msg: 'Authentication failed.'});
         }
     }
+});
+
+router.all('/signin', (req, res) => {
+    // Returns a message stating that the HTTP method is unsupported.
+    res.status(405).send({ message: 'HTTP method not supported.' });
 });
 
 router.route('/movies')
